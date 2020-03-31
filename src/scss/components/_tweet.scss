@@ -1,0 +1,61 @@
+//
+// Tweet
+//
+
+.c-tweet {
+    $this: &;
+    margin: ($gutter / 2) 0;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    @include element(votes) {
+        text-align: center;
+
+        &--upvoted {
+            #{$this}__arrow--up {
+                color: $orange;
+            }
+        }
+
+        &--downvoted {
+            #{$this}__arrow--down {
+                color: $blue;
+            }
+        }
+    }
+
+    @include element(image) {
+
+    }
+
+    @include element(arrow) {
+        display: block;
+        color: $grey-light;
+        line-height: 1;
+    }
+
+    @include element(score) {
+        color: $grey-light;
+    }
+
+    @include element(title) {
+        color: $blue;
+    }
+
+    @include element(meta) {
+        font-size: $size-7;
+        color: $grey-light;
+    }
+
+    @include element(author) {
+        color: $blue;
+    }
+
+    @include element(links) {
+        font-size: $size-7;
+        color: $blue;
+    }
+
+}

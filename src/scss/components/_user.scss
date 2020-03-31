@@ -1,0 +1,14 @@
+//
+// User
+//
+
+.c-user {
+
+    @include element(score) {
+        @include shadow(1);
+        padding: $gutter / 2 $gutter;
+        background-color: $white-ter;
+        border: 1px solid $grey-lighter;
+    }
+
+}

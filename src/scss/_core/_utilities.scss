@@ -1,0 +1,264 @@
+//
+// Utilities
+//
+
+// Signify that this class is a Utility class. It has a very specific
+// role (often providing only one declaration) and should not be bound
+// onto or changed. It can be reused and is not tied to any specific
+// piece of UI. You will probably recognise this namespace from
+// libraries and methodologies like SUIT.
+
+#frunt {
+
+    //
+    // Alignment
+    // --------------------------------------------------
+
+    .u-left {
+        text-align: left;
+    }
+
+    .u-centered {
+        text-align: center;
+    }
+
+    .u-right {
+        text-align: right;
+    }
+
+    .u-vertical-align {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .u-flex-align {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    //
+    // Float Alignment
+    // --------------------------------------------------
+
+    .u-pull-left {
+        float: left;
+    }
+
+    .u-pull-right {
+        float: right;
+    }
+
+    //
+    // Clearing
+    // --------------------------------------------------
+
+    .u-clearing {
+        @include clearfix();
+    }
+
+    //
+    // Pre-defined Heights
+    // --------------------------------------------------
+
+    .u-height-100 {
+        min-height: 100px !important;
+    }
+
+    .u-height-150 {
+        min-height: 150px !important;
+    }
+
+    .u-height-200 {
+        min-height: 200px !important;
+    }
+
+    .u-height-300 {
+        min-height: 300px !important;
+    }
+
+    .u-height-400 {
+        min-height: 400px !important;
+    }
+
+    .u-height-500 {
+        min-height: 500px !important;
+    }
+
+    //
+    // Typography
+    // --------------------------------------------------
+
+    .u-italic {
+        font-style: italic;
+    }
+
+    .u-text-center {
+        text-align: center;
+    }
+
+    //
+    // Layout
+    // --------------------------------------------------
+
+    .u-wrapper {
+        position: relative;
+    }
+
+    //
+    // Spacing
+    // --------------------------------------------------
+    //
+    // u-{spacing}-{direction}-{amount}
+    //
+    // Spacing Options
+    //      m: margin
+    //      p: padding
+    //
+    // Direction Options:
+    //      a: All
+    //      t: Top
+    //      r: Right
+    //      b: Bottom
+    //      l: Left
+    //
+    //  Amount Options (assuming defaults):
+    //      0: None
+    //      1: 1rem
+    //      2: 1.5rem
+    //      3: 3rem
+
+    $spacers: (
+        0: (
+            x: 0,
+            y: 0
+        ),
+        1: (
+            x: $spacer-x,
+            y: $spacer-y
+        ),
+        2: (
+            x: ($spacer-x * 1.5),
+            y: ($spacer-y * 1.5)
+        ),
+        3: (
+            x: ($spacer-x * 3),
+            y: ($spacer-y * 3)
+        )
+    );
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+        @each $size, $lengths in $spacers {
+            $length-x:   map-get($lengths, x);
+            $length-y:   map-get($lengths, y);
+
+            .u-#{$abbrev}-a-#{$size} { #{$prop}:        $length-y $length-x !important; } // a = All sides
+            .u-#{$abbrev}-t-#{$size} { #{$prop}-top:    $length-y !important; }
+            .u-#{$abbrev}-r-#{$size} { #{$prop}-right:  $length-x !important; }
+            .u-#{$abbrev}-b-#{$size} { #{$prop}-bottom: $length-y !important; }
+            .u-#{$abbrev}-l-#{$size} { #{$prop}-left:   $length-x !important; }
+
+            // Axes
+            .u-#{$abbrev}-x-#{$size} {
+                #{$prop}-right:  $length-x !important;
+                #{$prop}-left:   $length-x !important;
+            }
+            .u-#{$abbrev}-y-#{$size} {
+                #{$prop}-top:    $length-y !important;
+                #{$prop}-bottom: $length-y !important;
+            }
+        }
+    }
+
+    //
+    // Prevent Scrolling
+    // --------------------------------------------------
+
+    .u-locked {
+        overflow: hidden;
+    }
+
+    //
+    // Responsive utilities
+    // --------------------------------------------------
+
+    @each $bp in map-keys($grid-breakpoints) {
+        .u-hidden-#{$bp}-up {
+            @include media-breakpoint-up($bp) {
+                display: none !important;
+            }
+        }
+        .u-hidden-#{$bp}-down {
+            @include media-breakpoint-down($bp) {
+                display: none !important;
+            }
+        }
+    }
+
+    // Print utilities
+    //
+    // Media queries are placed on the inside to be mixin-friendly.
+
+    .u-visible-print-block {
+        display: none !important;
+
+        @media print {
+            display: block !important;
+        }
+    }
+
+    .u-visible-print-inline {
+        display: none !important;
+
+        @media print {
+            display: inline !important;
+        }
+    }
+
+    .u-visible-print-inline-block {
+        display: none !important;
+
+        @media print {
+            display: inline-block !important;
+        }
+    }
+
+    .u-hidden-print {
+        @media print {
+            display: none !important;
+        }
+    }
+
+    //
+    // Vue Cloaking
+    //     <span class="v-cloak--inline">Loading...</span> <!-- Only displayed before compiling -->
+    //     <span class="v-cloak--hidden">{{ post.title }}</span> <!-- Hidden until compiling is finished -->
+    // --------------------------------------------------
+
+    [v-cloak] .v-cloak--block {
+        display: block;
+    }
+
+    [v-cloak] .v-cloak--inline {
+        display: inline;
+    }
+
+    [v-cloak] .v-cloak--inlineBlock {
+        display: inline-block;
+    }
+
+    [v-cloak] .v-cloak--hidden {
+        display: none;
+    }
+
+    [v-cloak] .v-cloak--invisible {
+        visibility: hidden;
+    }
+
+    .v-cloak--block,
+    .v-cloak--inline,
+    .v-cloak--inlineBlock {
+        display: none;
+    }
+}

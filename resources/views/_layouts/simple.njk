@@ -1,0 +1,20 @@
+<!doctype html>
+<html id="frunt">
+    <head>
+        {% block head %}
+            {% include '_includes/layout/head' %}
+        {% endblock head %}
+    </head>
+    <body class="o-body o-simple">
+        <div class="o-app js-app">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        {% block foot %}
+            {% include '_includes/layout/foot' %}
+        {% endblock foot %}
+
+    </body>
+</html>

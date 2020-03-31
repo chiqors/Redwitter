@@ -1,0 +1,17 @@
+//
+// Form
+//
+
+.c-form {
+    @include modifier(float) {
+        margin: 0 auto;
+        padding: 3.75rem;
+        background-color: #FFFFFF;
+        border-radius: 3px;
+        @include shadow(2);
+    }
+
+    @include modifier(medium) {
+        max-width: 600px;
+    }
+}

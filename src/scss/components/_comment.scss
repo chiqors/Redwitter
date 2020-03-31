@@ -1,0 +1,24 @@
+//
+// Comment
+//
+
+.c-comment {
+
+
+    @include element(meta) {
+
+    }
+
+    @include element(author) {
+        font-weight: bold;
+    }
+
+    @include element(date) {
+
+    }
+
+    @include element(content) {
+
+    }
+
+}

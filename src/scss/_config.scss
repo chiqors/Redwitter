@@ -1,0 +1,39 @@
+//
+// Config
+//
+
+$debug: false;
+
+//
+// Grid
+// --------------------------------------------------
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+    xs: 0,        // Extra small screen / phone
+    sm: 544px,    // Small screen / phone
+    md: 768px,    // Medium screen / tablet
+    lg: 992px,    // Large screen / desktop
+    xl: 1200px,   // Extra large screen / wide desktop
+);
+
+// Spacing
+//
+// Control th styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+
+$spacer: 1rem;
+$spacer-x: $spacer;
+$spacer-y:  $spacer;
+$border-width: .0625rem;
+
+//
+// Aliases
+// --------------------------------------------------
+
+$gutter: 1.875rem;
+$gutter-fixed: 30px;

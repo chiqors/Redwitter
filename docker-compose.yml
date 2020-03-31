@@ -1,0 +1,32 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: tweddit/app
+    volumes:
+     - .:/opt
+    networks:
+     - appnet
+    ports:
+     - 3333:3333
+  mysql:
+    image: mysql:5.6
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - appnet
+    ports:
+     - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "app"
+      MYSQL_USER: "docker"
+      MYSQL_PASSWORD: "secret"
+networks:
+  appnet:
+    driver: "bridge"
+volumes:
+  mysqldata:
+    driver: "local"

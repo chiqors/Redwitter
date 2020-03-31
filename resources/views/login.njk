@@ -1,0 +1,41 @@
+{% extends '_layouts/simple' %}
+
+{% block content %}
+
+    <div class="container">
+
+        {% for key, message in flashMessages %}
+            <div class="notification is-{{key}}">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <form action="/login" method="POST" class="c-form c-form--medium c-form--float">
+            <h2 class="u-text-center is-size-3 u-m-b-3">Login to get started</h2>
+
+            {{ csrfField }}
+
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input class="input" type="email" placeholder="email" name="email">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" placeholder="password" name="password">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+{% endblock %}

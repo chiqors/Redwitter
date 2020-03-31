@@ -1,0 +1,13 @@
+//
+// Simple
+//
+
+.o-simple {
+    background-color: #444;
+
+    .o-app {
+        padding-top: $gutter * 3;
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
