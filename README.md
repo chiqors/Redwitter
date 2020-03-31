@@ -1,8 +1,4 @@
-# Tweddit
-
-Twitter + Reddit  = Tweddit
-
-
+# Redwiter
 
 ## Features
 
@@ -12,8 +8,6 @@ Twitter + Reddit  = Tweddit
 - [x] Calculate user karma score for their submissions
 - [x] Friends (Anyone who has up voted a users post)
 - [x] Frenemies (Anyone who has down voted a users post)
-
-
 
 ## Stack
 
