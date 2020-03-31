@@ -1,4 +1,4 @@
-# Redwiter
+# Redwitter
 
 ## Features
 
