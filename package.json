@@ -26,7 +26,7 @@
     "adonis-middleware": "^1.0.11",
     "adonis-validation-provider": "^3.0.5",
     "adonis-websocket": "^1.0.3",
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
