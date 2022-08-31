@@ -41,7 +41,7 @@
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "moment-timezone": "^0.5.13",
+    "moment-timezone": "^0.5.35",
     "mysql": "^2.14.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
